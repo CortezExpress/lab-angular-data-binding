@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import foods from '../foods';
 
+
 @Component({
   selector: 'app-food-list',
   templateUrl: './food-list.component.html',
@@ -8,9 +9,13 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
 
+  searchFood(){
+    
+  }
   constructor() { }
-
+  foods: Array<object> = []
   ngOnInit() {
+    this.foods = foods;
   }
 
 }
