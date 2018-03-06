@@ -9,13 +9,37 @@ import foods from '../foods';
 })
 export class FoodListComponent implements OnInit {
 
-  searchFood(){
-    
-  }
+ 
   constructor() { }
-  foods: Array<object> = []
+  foods: Object[];
+  boolean: boolean;
+  newFood: Object = {};
+  newList: Array<Object> = [];
+
+  buttonClickMethod(){
+    if(this.boolean == true) {
+      this.boolean = false;
+    }else{
+      this.boolean = true
+    }
+  }
+
+ addFood(){
+   this.foods.push(this.newFood);
+   this.newFood = {};
+ }
+
+ addToFoodList(food){
+   console.log("adding to list");
+   console.log(this.newList);
+   this.newList.push(food);
+
+ }
+
+
   ngOnInit() {
     this.foods = foods;
+    this.boolean = true
   }
 
 }

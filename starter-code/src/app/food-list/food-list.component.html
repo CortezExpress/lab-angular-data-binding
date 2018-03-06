@@ -1,13 +1,35 @@
 
+<div>
+    <label for="add_food"> Add A Food </label>
+    <button (click)="buttonClickMethod()">
+        add food
+    </button>
 
+    <div *ngIf = "boolean === false" class="addFood">
+      <input placeholder="name" [(ngModel)]="newFood.name"> 
+      <input placeholder="calories" [(ngModel)]="newFood.calories">
+      <input placeholder="image" [(ngModel)]="newFood.image">
+      <button (click)="addFood();buttonClickMethod()">submit</button>
+
+    </div>
+</div>
 
 <ul>
-  <input type="text" [(ngModel)]="pattern">
+  <input placeholder="search" type="text" [(ngModel)]="pattern">
   <br>
   <br>
   <li *ngFor="let food of foods|filter:'name':pattern; let i = index">
     <b>{{ food.name}}</b>
     <br>{{ food.calories}}
    <br> <img style="width: 200px; height: 100px" [src]="food.image" alt="image of food">
-
+   <button (click)="addToFoodList(food)">Add to Today's List</button>
+  </li>
+</ul>
+<br>
+<hr>
+<h1> Today's Yummy Foods</h1>
+<ul>
+    <li *ngFor="let food of newList, let i = index">
+        {{food.name}} - {{  }}
+    </li>
 </ul>
